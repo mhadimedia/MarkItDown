@@ -5,13 +5,14 @@ Convert your text into beautifully formatted Markdown, HTML, or Plain Text using
 ## Features
 - Convert plain text into three formats: Markdown, HTML, and Plain Text.
 - View the processed text in both raw and rendered forms.
-- Download the converted text as `.md`, `.html`, or `.txt` file.
+- Copy or Download the converted text as `.md`, `.html`, or `.txt` file.
 - Configurable to use different versions of GPT models from OpenAI (higher models = higher accuracy)
 
-## To Add
-[] Better UI
-[] Ability to Upload Text Files and PDFs
-[] Option to Insert Stock Images
+## Cool Features to Add in the Future
+[ ] Better UI
+[ ] Option to Select Multiple Output Formats
+[ ] Ability to Upload Text Files and PDFs
+[ ] Ability to Upload Images and Use OCR for Text Extraction
 
 ---
 # Installation
