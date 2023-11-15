@@ -6,23 +6,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarkItDown</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            padding: 50px;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center; /* keeps the box vertically centered */
+            justify-content: center; /* keeps the box horizontally centered */
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6ccdff, #00497a);
         }
 
         #main-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px; /* fixed width, adjust as needed */
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0 0 30px 0; /* adjusted to remove the margin-bottom shorthand */
+            color: #333;
+            font-weight: 700;
+            text-align: center; /* centers the heading text */
+        }
+
+        .form-control, .form-select, .btn {
+            display: block; /* makes the input block-level so it fills the width */
+            width: calc(100% - 30px); /* subtracts the padding from the width */
+            margin: 0 auto 20px auto; /* centers the form elements */
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
         }
 
         #output-section {
+            text-align: center; /* centers text inside the output section */
+        }
+
+        .btn-group {
+            justify-content: center; /* centers flex items if .btn-group is a flex container */
+        }
+
+        #output-text {
+            height: auto; /* adjust height automatically */
+            min-height: 100px; /* minimum height */
+            max-height: 200px; /* maximum height before scrolling */
+            overflow-y: auto; /* allow vertical scrolling */
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #00497a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #00335f;
+        }
+
+        .alert {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #output-section h3 {
             margin-top: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        #output-section .btn-light {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        #output-section .btn-secondary {
+            background-color: #6ccdff;
+            color: #333;
+        }
+
+        #output-section .btn-secondary:hover {
+            background-color: #5bb8e6;
         }
     </style>
 </head>

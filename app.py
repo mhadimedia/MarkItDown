@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import openai
 import yaml
 
+# Load configuration
 with open('config.yaml', 'r') as config_file:
     config = yaml.safe_load(config_file)
 
@@ -24,13 +25,19 @@ def process_with_gpt(input_text, output_format):
     return response
 
 def get_completion(prompt, model=GPT_VERSION):
-    messages = [{"role": "user", "content": prompt}]
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=messages,
-        temperature=0,
-    )
-    return response.choices[0].message["content"]
+    try:
+        messages = [{"role": "user", "content": prompt}]
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=messages,
+            temperature=0,
+            max_tokens=1000  # Adjust as needed
+        )
+        return response.choices[0].message["content"]
+    except Exception as e:
+        # Log the exception for debugging
+        print("Error occurred: ", e)
+        return "An error occurred during processing."
 
 @app.route('/')
 def index():
@@ -41,9 +48,13 @@ def process():
     input_text = request.form['input_text']
     output_format = request.form['output_format']
 
-    # Process the input_text with GPT
+    # Check for text length
+    if len(input_text) > 100000:
+        return render_template('index.html', error="Text is too long. Please limit to 100,000 characters.")
+
     processed_text = process_with_gpt(input_text, output_format)
-    
+
+    # If processing fails, it will return an error message
     return render_template('index.html', processed_text=processed_text, output_format=output_format)
 
 if __name__ == '__main__':
